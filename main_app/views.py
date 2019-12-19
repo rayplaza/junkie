@@ -32,3 +32,7 @@ def signup(request):
 
 class RecordList(LoginRequiredMixin, ListView):
     model = Record
+
+class RecordDetail(LoginRequiredMixin, DetailView):
+    model = Record
+
