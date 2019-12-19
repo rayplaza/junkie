@@ -10,9 +10,6 @@ import uuid
 import boto3
 # Create your views here.
 
-S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
-BUCKET = 'catcollector'
-
 def home(request):
     return render(request, 'home.html')
 
@@ -55,6 +52,8 @@ class RecordDelete(LoginRequiredMixin, DeleteView):
 
 @login_required
 def add_photo(request, record_id):
+  S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+  BUCKET = 'catcollector-rpc'
   photo_file = request.FILES.get('photo-file', None)
   if photo_file:
     s3 = boto3.client('s3')
