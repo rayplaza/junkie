@@ -26,4 +26,10 @@ class Record(models.Model):
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def __srr__(self):
+        return self.album_name
+    
+    def get_absolutle_url(self):
+        return reverse('records_detail', kwargs={'pk': self.id})
+
     
