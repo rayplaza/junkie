@@ -2,6 +2,11 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url("https://files.cults3d.com/uploaders/13746678/illustration-file/cdddf4bd-aaec-4371-8eae-b7aa1e4a42de/RobagoN_MMSquareWoodenTreasureChest_Varient1.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    font-family: 'Expletus Sans', cursive;
   }
   
   main {
@@ -13,4 +18,6 @@ body {
     text-align: right;
   }
 
-  
+  #main-logo {
+      justify-content: center;
+  }
