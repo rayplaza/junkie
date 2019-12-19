@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Record, Photo
+from .models import Record, Comic, Photo
 import uuid
 import boto3
 # Create your views here.
@@ -49,6 +49,29 @@ class RecordUpdate(LoginRequiredMixin, UpdateView):
 class RecordDelete(LoginRequiredMixin, DeleteView):
   model = Record
   success_url = '/records/'
+
+class ComicList(LoginRequiredMixin, ListView):
+    def get_queryset(self):
+      return Comic.objects.filter(user=self.request.user)
+
+class ComicDetail(LoginRequiredMixin, DetailView):
+    model = Comic
+
+class ComicCreate(LoginRequiredMixin, CreateView):
+    model = Comic
+    fields = ['comic_name', 'edition', 'year', 'publisher', 'condition']
+
+    def form_valid(self, form):
+      form.instance.user = self.request.user
+      return super().form_valid(form)
+
+class ComicUpdate(LoginRequiredMixin, UpdateView):
+  model = Comic
+  fields = ['comic_name', 'edition', 'year', 'publisher', 'condition']
+
+class ComicDelete(LoginRequiredMixin, DeleteView):
+  model = Comic
+  success_url = '/comics/'
 
 @login_required
 def add_photo(request, record_id):
