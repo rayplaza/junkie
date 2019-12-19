@@ -26,7 +26,8 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 class RecordList(LoginRequiredMixin, ListView):
-    model = Record
+    def get_queryset(self):
+      return Record.objects.filter(user=self.request.user)
 
 class RecordDetail(LoginRequiredMixin, DetailView):
     model = Record
