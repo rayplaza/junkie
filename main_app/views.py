@@ -33,7 +33,7 @@ class RecordDetail(LoginRequiredMixin, DetailView):
 
 class RecordCreate(LoginRequiredMixin, CreateView):
     model = Record
-    fields = '__all__'
+    fields = ['album_name', 'artist', 'year', 'label', 'condition']
 
 class RecordUpdate(LoginRequiredMixin, UpdateView):
   model = Record

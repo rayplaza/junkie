@@ -7,7 +7,7 @@
 {% if user.is_authenticated %}
   <div class="center-align">
     <img width="900" src="https://i.imgur.com/6e5H8LQ.jpg"><br>
-    <a class="waves-effect blue-grey btn" href="" class="blue-grey-text">Vinyl Junkie</a>
+    <a class="waves-effect blue-grey btn" href="{% url 'records_index' %}" class="blue-grey-text">Vinyl Junkie</a>
   </div>
 {% else %}
   <div class="center-align">

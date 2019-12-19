@@ -24,7 +24,8 @@
         <li><a href="{%url 'home'%}" class="blue-grey-text"><i class="material-icons left">home</i>Home</a></li>
         <li><a href="{% url 'signup' %}" class="blue-grey-text"><i class="material-icons left">create</i>Sign Up</a></li>
         {% if user.is_authenticated %}
-          <li><a href="{% url 'logout' %}" class="blue-grey-text"><i class="material-icons left">person_outline</i>Log Out</a></li>
+        <li><a href="{% url 'logout' %}" class="blue-grey-text"><i class="material-icons left">person_outline</i>Log Out</a></li>
+        <li><a href="{% url 'records_create' %}" class="blue-grey-text"><i class="material-icons left">create</i>Add a Record</a></li>
         {% else %}
           <li><a href="{% url 'login' %}" class="blue-grey-text"><i class="material-icons left">person</i>Log In</a></li>
         {% endif %}
