@@ -36,3 +36,7 @@ class RecordList(LoginRequiredMixin, ListView):
 class RecordDetail(LoginRequiredMixin, DetailView):
     model = Record
 
+class RecordCreate(LoginRequiredMixin, CreateView):
+    model = Record
+    fields = '__all__'
+
