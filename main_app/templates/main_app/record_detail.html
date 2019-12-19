@@ -6,7 +6,11 @@
   <div class="col s6 col-offset-3">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ record.name }}</span>
+        <span class="card-title">{{ record.album_name }}</span>
+        <p>{{record.artist}}</p>
+        <p>{{record.year}}</p>
+        <p>{{record.label}}</p>
+        <p>{{record.get_condition_display}}</p>
       </div>
       <div class="card-action">
         <a href="{% url 'records_update' record.id %}">Edit</a>
