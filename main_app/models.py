@@ -29,7 +29,7 @@ class Record(models.Model):
     def __srr__(self):
         return self.album_name
     
-    def get_absolutle_url(self):
+    def get_absolute_url(self):
         return reverse('records_detail', kwargs={'pk': self.id})
 
     

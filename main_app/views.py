@@ -33,7 +33,11 @@ class RecordDetail(LoginRequiredMixin, DetailView):
 
 class RecordCreate(LoginRequiredMixin, CreateView):
     model = Record
-    fields = '__all__'
+    fields = ['album_name', 'artist', 'year', 'label', 'condition']
+
+    def form_valid(self, form):
+      form.instance.user = self.request.user
+      return super().form_valid(form)
 
 class RecordUpdate(LoginRequiredMixin, UpdateView):
   model = Record
