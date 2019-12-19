@@ -3,12 +3,11 @@
 
 <h1>Toy List</h1>
 
-{% for toy in toy_list %}
-  <a href="{% url 'toys_detail' toy.id %}">
+{% for record in record_list %}
+  <a href="{% url 'record_detail' record.id %}">
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ toy.name }}</span>
-            <p>Color: {{ toy.color }}</p>
+            <span class="card-title">{{ record.album_name }}</span>
         </div>
     </div>
   </a>
