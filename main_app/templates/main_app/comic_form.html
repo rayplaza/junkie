@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+
+<body style="background-image: url('{% static "images/maxresdefault.jpg"%}')";></body>
+
+
   {% if object %}
     <h1 class="blue-grey-text">Edit <span class="teal-text">{{object.comic_name}}</span></h1>
   {% else %}
