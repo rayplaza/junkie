@@ -110,15 +110,19 @@ def add_image(request, comic_id):
   return redirect('comics_detail', pk=comic_id)
 
 @login_required
-def see_user(request, user_id):
-  user = User.objects.get(usernam=request.username)
+def see_user(request):
+  name = request.POST.get('username')
+  try:
+    user = User.objects.get(username=name)
+  except User.DoesNotExist:
+    user = None
   if user:
     comic_list = user.comic_set.all()
     record_list = user.record_set.all()
     return render(request, 'userlist.html', {
     'comic_list': comic_list,
     'record_list': record_list,
-    'username': request.username
+    'username': request.POST.get('username')
     })
   else: 
     return render(request, 'home.html')
