@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Record List</h1>
+<h1 class="blue-grey-text">Record List</h1>
 
 {% for record in record_list %}
   <a href="{% url 'records_detail' record.id %}">

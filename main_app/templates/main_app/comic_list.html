@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Comic List</h1>
+<h1 class="blue-grey-text">Comic List</h1>
 
 {% for comic in comic_list %}
   <a href="{% url 'comics_detail' comic.id %}">
