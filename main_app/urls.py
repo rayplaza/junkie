@@ -16,5 +16,5 @@ urlpatterns = [
     path('comics/<int:pk>/update/', views.ComicUpdate.as_view(), name='comics_update'),
     path('comics/<int:pk>/delete/', views.ComicDelete.as_view(), name='comics_delete'),
     path('comics/<int:comic_id>/add_image/', views.add_image, name='add_image'),
-    path('userlist/<str:username>/', views.see_user, name='see_user'),
+    path('userlist/', views.see_user, name='see_user'),
 ]
