@@ -4,17 +4,20 @@
 <h1 class="blue-grey-text">Record Details</h1>
 <div class="row">
   <div class="col s6 col-offset-3">
-    {% for photo in record.photo_set.all %}
-      <img width="350" class="responsive-img card-panel" src="{{photo.url}}">
-    {% empty %}
-      <div class="card-panel blue-grey-text center-align">No Photos Uploaded</div>
-    {% endfor %}
+    {% if record.photo_set.all|length %}
+      {% for photo in record.photo_set.all %}
+        <img width="350" class="responsive-img card-panel" src="{{photo.url}}">
+      {% empty %}
+        <div class="card-panel blue-grey-text center-align">No Photos Uploaded</div>
+      {% endfor %}
+    {% else %}
     <form action="{% url 'add_photo' record.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
       {% csrf_token %}
       <input type="file" name="photo-file">
       <br><br>
       <input type="submit" class="waves-effect blue-grey btn" value="Upload Photo">
     </form>
+    {% endif %}
   </div>
   <div class="col s6 col-offset-3">
     <div class="card">
