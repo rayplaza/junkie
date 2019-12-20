@@ -22,6 +22,7 @@
         </ul>
       <ul class="right blue-grey-text">
         {% if user.is_authenticated %}
+        <li><form action="" ><input name="username" type="text" placeholder="search"><input type="submit" value="&#10144;" class="btn"></form></li>
         <li><a href="{% url 'records_index' %}" class="blue-grey-text"><i class="material-icons left">view_list</i>All Records</a></li>
         <li><a href="{% url 'records_create' %}" class="blue-grey-text"><i class="material-icons left">create</i>Add a Record</a></li>
         <li><a href="{% url 'comics_index' %}" class="blue-grey-text"><i class="material-icons left">view_list</i>All Comics</a></li>
