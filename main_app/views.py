@@ -6,6 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Record, Comic, Photo, Cphoto
+from django.contrib.auth.models import User
 import uuid
 import boto3
 # Create your views here.
@@ -107,3 +108,17 @@ def add_image(request, comic_id):
     except:
       print('An error occurred uploading file to S3')
   return redirect('comics_detail', pk=comic_id)
+
+@login_required
+def see_user(request, user_id):
+  user = User.objects.get(usernam=request.username)
+  if user:
+    comic_list = user.comic_set.all()
+    record_list = user.record_set.all()
+    return render(request, 'userlist.html', {
+    'comic_list': comic_list,
+    'record_list': record_list,
+    'username': request.username
+    })
+  else: 
+    return render(request, 'home.html')
