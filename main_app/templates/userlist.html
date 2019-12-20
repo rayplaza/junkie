@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>{{username}}'s Lists</h1>
+
+<h1 class="blue-grey-text">Comic List</h1>
+
+{% for comic in comic_list %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ comic.comic_name }}</span>
+        </div>
+    </div>
+{% endfor %}
+
+<h1 class="blue-grey-text">Record List</h1>
+
+{% for record in record_list %}
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ record.album_name }}</span>
+        </div>
+    </div>
+{% endfor %}
+
+
+{% endblock %}
