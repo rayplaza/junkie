@@ -10,4 +10,9 @@ urlpatterns = [
     path('records/<int:pk>/update/', views.RecordUpdate.as_view(), name='records_update'),
     path('records/<int:pk>/delete/', views.RecordDelete.as_view(), name='records_delete'),
     path('records/<int:record_id>/add_photo/', views.add_photo, name='add_photo'),
+    path('comics/', views.ComicList.as_view(), name='comics_index'),
+    path('comics/<int:pk>/', views.ComicDetail.as_view(), name='comics_detail'),
+    path('comics/create/', views.ComicCreate.as_view(), name='comics_create'),
+    path('comics/<int:pk>/update/', views.ComicUpdate.as_view(), name='comics_update'),
+    path('comics/<int:pk>/delete/', views.ComicDelete.as_view(), name='comics_delete'),
 ]
