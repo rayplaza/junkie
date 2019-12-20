@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Delete Comic</h1>
-  <h4>Are you sure you want to delete <span class="teal-text">{{ comic.comic_name }}</span>?</h4>
+  <h1 class="blue-grey-text">Delete Comic</h1>
+  <h4>Are you sure you want to delete <span class="blue-grey-text">{{ comic.comic_name }}</span>?</h4>
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Delete!" class="btn">
+    <input type="submit" value="Delete!" class="waves-effect blue-grey btn">
     <a href="{% url 'comics_index' %}">Cancel</a>
   </form>
 {% endblock %}
