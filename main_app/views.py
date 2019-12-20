@@ -5,7 +5,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Record, Comic, Photo
+from .models import Record, Comic, Photo, C_Photo
 import uuid
 import boto3
 # Create your views here.
@@ -89,3 +89,20 @@ def add_photo(request, record_id):
     except:
       print('An error occurred uploading file to S3')
   return redirect('records_detail', pk=record_id)
+
+@login_required
+def add_image(request, comic_id):
+  S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
+  BUCKET = 'catcollector-rpc'
+  photo_file = request.FILES.get('photo-file', None)
+  if photo_file:
+    s3 = boto3.client('s3')
+    key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+    try:
+      s3.upload_fileobj(photo_file, BUCKET, key)
+      url = f"{S3_BASE_URL}{BUCKET}/{key}"
+      photo = C_Photo(url=url, comic_id=comic_id)
+      photo.save()
+    except:
+      print('An error occurred uploading file to S3')
+  return redirect('comics_detail', pk=comic_id)
