@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+
+<body style="background-image: url('{% static "images/Label_TJP.jpg"%}')";></body>
+
   <h1 class="blue-grey-text">Delete Record</h1>
   <h4>Are you sure you want to delete <span class="blue-grey-text">{{ object.name }}</span>?</h4>
   <form action="" method="POST">
