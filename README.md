@@ -35,7 +35,7 @@ You can input the album information into your collection, including grade and de
 [Junkie Trello Board](https://trello.com/b/KIEimjhP/junkie)
 
 ## Heroku Link
-
+[Junkie App Link](https://collection-junkie.herokuapp.com/)
 
 
 ## Next Steps:
